@@ -1,513 +1,150 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Deploy AI Agents Your Business Can Trust</title>
+<title>AI Institute for Learning | Trusted Multi-Agent Workflows</title>
 <style>
 :root{
---bg:#f8fafc;
---dark:#0f172a;
---muted:#64748b;
---primary:#2563eb;
---primary-dark:#1e3a8a;
---accent:#f97316;
---white:#ffffff;
---border:#e2e8f0;
---soft:#eff6ff;
---soft2:#fff7ed;
---green:#16a34a;
+--navy:#061528;--blue:#2563eb;--gold:#f8b400;--gold2:#ffcf48;--white:#fff;
+--muted:#64748b;--light:#f8fafc;--border:#e2e8f0;--green:#16a34a;--red:#dc2626;
+--shadow:0 24px 70px rgba(15,23,42,.18);
 }
 *{box-sizing:border-box}
-body{
-margin:0;
-font-family:Inter,Arial,sans-serif;
-background:var(--bg);
-color:var(--dark);
-line-height:1.6;
-}
-.container{
-max-width:1160px;
-margin:auto;
-}
-.hero{
-background:
-radial-gradient(circle at top left, rgba(37,99,235,.38), transparent 34%),
-radial-gradient(circle at bottom right, rgba(249,115,22,.28), transparent 32%),
-linear-gradient(135deg,#020617 0%,#111827 48%,#1e3a8a 100%);
-color:white;
-padding:92px 24px 76px;
-}
-.hero-grid{
-display:grid;
-grid-template-columns:1.08fr .92fr;
-gap:48px;
-align-items:center;
-}
-.badge{
-display:inline-block;
-padding:8px 14px;
-border-radius:999px;
-background:rgba(255,255,255,.11);
-border:1px solid rgba(255,255,255,.22);
-font-size:14px;
-margin-bottom:20px;
-color:#dbeafe;
-}
-h1{
-font-size:60px;
-line-height:1.04;
-letter-spacing:-2px;
-margin:0 0 22px;
-}
-.hero p{
-font-size:20px;
-color:#dbeafe;
-max-width:760px;
-}
-.cta-row{
-display:flex;
-gap:16px;
-flex-wrap:wrap;
-margin-top:32px;
-}
-.btn{
-padding:16px 26px;
-border-radius:14px;
-font-weight:800;
-text-decoration:none;
-display:inline-block;
-}
-.btn-primary{
-background:white;
-color:var(--primary-dark);
-}
-.btn-secondary{
-border:1px solid rgba(255,255,255,.35);
-color:white;
-}
-.hero-card{
-background:rgba(255,255,255,.1);
-border:1px solid rgba(255,255,255,.18);
-backdrop-filter:blur(10px);
-border-radius:26px;
-padding:30px;
-box-shadow:0 25px 60px rgba(0,0,0,.25);
-}
-.hero-card h3{
-font-size:25px;
-margin:0 0 14px;
-}
-.problem{
-padding:16px 0;
-border-bottom:1px solid rgba(255,255,255,.15);
-}
-.problem:last-child{
-border-bottom:none;
-}
-.problem strong{
-display:block;
-font-size:16px;
-color:white;
-}
-.problem span{
-display:block;
-font-size:14px;
-color:#cbd5e1;
-margin-top:4px;
-}
-section{
-padding:78px 24px;
-}
-h2{
-font-size:42px;
-line-height:1.12;
-letter-spacing:-1px;
-margin:0 0 18px;
-}
-.lead{
-font-size:20px;
-color:var(--muted);
-max-width:860px;
-margin-bottom:36px;
-}
-.grid3{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:22px;
-}
-.card{
-background:white;
-border:1px solid var(--border);
-border-radius:22px;
-padding:28px;
-box-shadow:0 12px 32px rgba(15,23,42,.055);
-}
-.card-icon{
-width:50px;
-height:50px;
-border-radius:15px;
-background:var(--soft);
-display:grid;
-place-items:center;
-font-size:24px;
-margin-bottom:16px;
-}
-.card h3{
-font-size:22px;
-line-height:1.2;
-margin:0 0 12px;
-}
-.card p{
-color:var(--muted);
-margin:0;
-}
-.strip{
-background:white;
-border-top:1px solid var(--border);
-border-bottom:1px solid var(--border);
-}
-.split{
-display:grid;
-grid-template-columns:.9fr 1.1fr;
-gap:44px;
-align-items:center;
-}
-.warning{
-background:var(--soft2);
-border:1px solid #fed7aa;
-border-radius:24px;
-padding:30px;
-color:#7c2d12;
-font-size:22px;
-font-weight:800;
-}
-.feature{
-background:white;
-border:1px solid var(--border);
-border-radius:17px;
-padding:19px 21px;
-margin-bottom:16px;
-display:flex;
-gap:14px;
-}
-.tick{
-color:var(--green);
-font-size:22px;
-font-weight:900;
-line-height:1;
-}
-.feature strong{
-display:block;
-margin-bottom:5px;
-}
-.feature div:last-child{
-color:#475569;
-}
-.darkband{
-background:#0f172a;
-color:white;
-}
-.darkband .lead{
-color:#cbd5e1;
-}
-.outcome-grid{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:18px;
-margin-top:28px;
-}
-.outcome{
-background:#1e293b;
-border:1px solid #334155;
-border-radius:18px;
-padding:22px;
-}
-.outcome strong{
-display:block;
-font-size:18px;
-margin-bottom:6px;
-}
-.outcome span{
-color:#cbd5e1;
-font-size:15px;
-}
-.audience{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:16px;
-margin-top:30px;
-}
-.aud{
-background:white;
-border:1px solid var(--border);
-border-radius:18px;
-padding:22px;
-text-align:center;
-font-weight:800;
-}
-.scenario{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:22px;
-}
-.before,.after{
-border-radius:22px;
-padding:28px;
-border:1px solid var(--border);
-}
-.before{
-background:#fff7ed;
-}
-.after{
-background:#ecfdf5;
-}
-.before h3,.after h3{
-margin-top:0;
-font-size:24px;
-}
-.form-section{
-background:
-radial-gradient(circle at bottom right, rgba(37,99,235,.32), transparent 35%),
-linear-gradient(135deg,#0f172a,#1e3a8a);
-color:white;
-}
-.form-grid{
-display:grid;
-grid-template-columns:.9fr 1.1fr;
-gap:42px;
-align-items:start;
-}
-.form-section .lead{
-color:#dbeafe;
-}
-.form-box{
-background:white;
-color:var(--dark);
-padding:30px;
-border-radius:24px;
-box-shadow:0 25px 60px rgba(0,0,0,.22);
-}
-label{
-display:block;
-font-weight:800;
-font-size:14px;
-margin-top:16px;
-}
-input,select,textarea{
-width:100%;
-padding:14px;
-border:1px solid #cbd5e1;
-border-radius:12px;
-margin-top:8px;
-font-size:15px;
-}
-button{
-width:100%;
-padding:16px;
-margin-top:24px;
-background:var(--primary);
-color:white;
-border:none;
-border-radius:14px;
-font-size:16px;
-font-weight:900;
-cursor:pointer;
-}
-.small{
-font-size:13px;
-color:#64748b;
-margin-top:12px;
-}
-footer{
-background:white;
-text-align:center;
-padding:30px;
-font-size:14px;
-color:#64748b;
-}
-@media(max-width:900px){
-.hero-grid,.split,.form-grid,.scenario{
-grid-template-columns:1fr;
-}
-h1{font-size:44px}
-h2{font-size:34px}
-.grid3,.outcome-grid,.audience{
-grid-template-columns:1fr;
-}
-}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,Arial,sans-serif;background:var(--light);color:#0f172a;line-height:1.6}
+.container{max-width:1180px;margin:auto}
+.nav{position:absolute;top:0;left:0;right:0;z-index:10;padding:24px}
+.nav-inner{max-width:1180px;margin:auto;display:flex;justify-content:space-between;align-items:center}
+.brand{display:flex;align-items:center;gap:12px;color:white;font-weight:900}
+.logo{width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,var(--gold),#fff1a8);display:grid;place-items:center;color:var(--navy);font-weight:900;box-shadow:0 10px 28px rgba(248,180,0,.35)}
+.nav a{color:#dbeafe;text-decoration:none;font-weight:800;font-size:14px}
+.hero{position:relative;overflow:hidden;background:radial-gradient(circle at 12% 8%,rgba(37,99,235,.45),transparent 28%),radial-gradient(circle at 86% 18%,rgba(248,180,0,.25),transparent 30%),linear-gradient(135deg,#020617 0%,#07172b 46%,#15366a 100%);color:white;padding:118px 24px 86px}
+.hero:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:48px 48px;mask-image:linear-gradient(to bottom,black,transparent 90%)}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.03fr .97fr;gap:54px;align-items:center}
+.kicker{display:inline-flex;gap:10px;align-items:center;padding:9px 14px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);color:#dbeafe;font-size:14px;font-weight:900;margin-bottom:22px}
+.kicker span{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 6px rgba(248,180,0,.14)}
+h1{font-size:62px;line-height:1.02;letter-spacing:-2.3px;margin:0 0 24px}
+h1 strong{color:var(--gold2)}
+.hero p{font-size:21px;color:#dbeafe;max-width:780px;margin:0 0 20px}
+.cta-row{display:flex;gap:16px;flex-wrap:wrap;margin-top:34px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 24px;border-radius:14px;font-weight:900;text-decoration:none}
+.btn-primary{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#07172b;box-shadow:0 14px 32px rgba(248,180,0,.28)}
+.btn-secondary{border:1px solid rgba(255,255,255,.28);color:white;background:rgba(255,255,255,.06)}
+.micro{font-size:14px;color:#bfdbfe;margin-top:14px}
+.visual{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:28px;padding:28px;backdrop-filter:blur(12px);box-shadow:var(--shadow)}
+.visual h3{font-size:24px;margin:0 0 18px}
+.workflow{display:grid;gap:12px}
+.row{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center}
+.agent{background:rgba(2,6,23,.56);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:17px;min-height:90px}
+.agent b{display:block;color:white;margin-bottom:5px}.agent span{font-size:13px;color:#cbd5e1}
+.arrow{font-size:24px;color:var(--gold);font-weight:900}
+.trust-layer{margin:14px 0;padding:17px;border-radius:18px;background:rgba(248,180,0,.13);border:1px solid rgba(248,180,0,.25);color:#fff7cc;font-weight:900;text-align:center}
+.risk-layer{margin-top:16px;background:rgba(220,38,38,.13);border:1px solid rgba(248,113,113,.3);border-radius:18px;padding:16px;color:#fecaca;font-weight:800;font-size:14px}
+section{padding:82px 24px}
+h2{font-size:44px;line-height:1.1;letter-spacing:-1.2px;margin:0 0 18px}
+.lead{font-size:20px;color:var(--muted);max-width:900px;margin:0 0 38px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.card{background:white;border:1px solid var(--border);border-radius:24px;padding:30px;box-shadow:0 16px 40px rgba(15,23,42,.06)}
+.icon{width:54px;height:54px;border-radius:16px;background:linear-gradient(135deg,#eff6ff,#dbeafe);display:grid;place-items:center;font-size:26px;margin-bottom:18px}
+.card h3{font-size:23px;line-height:1.2;margin:0 0 12px}.card p{color:var(--muted);margin:0}
+.band{background:white;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.split{display:grid;grid-template-columns:.9fr 1.1fr;gap:50px;align-items:center}
+.callout{background:linear-gradient(135deg,#fff7ed,#ffffff);border:1px solid #fed7aa;border-radius:26px;padding:32px;color:#7c2d12;box-shadow:0 16px 40px rgba(124,45,18,.06)}
+.callout h3{font-size:30px;line-height:1.15;margin:0 0 10px}.callout p{font-size:18px;margin:0}
+.feature-list{display:grid;gap:16px}.feature{display:flex;gap:15px;background:white;border:1px solid var(--border);border-radius:18px;padding:20px;box-shadow:0 12px 34px rgba(15,23,42,.045)}
+.check{width:26px;height:26px;border-radius:8px;background:rgba(248,180,0,.16);color:var(--gold);display:grid;place-items:center;font-weight:900;flex-shrink:0}
+.feature strong{display:block;margin-bottom:5px;font-size:17px}.feature div:last-child{color:#475569}
+.dark{background:radial-gradient(circle at top right,rgba(37,99,235,.24),transparent 30%),linear-gradient(135deg,#07172b,#020617);color:white}.dark .lead{color:#cbd5e1}
+.outcomes{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.outcome{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.13);border-radius:20px;padding:22px}
+.outcome .num{color:var(--gold);font-weight:900;font-size:14px;margin-bottom:12px}.outcome strong{display:block;font-size:18px;margin-bottom:8px}.outcome span{font-size:14px;color:#cbd5e1}
+.scenario{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.before,.after{border-radius:26px;padding:32px;border:1px solid var(--border);box-shadow:0 16px 40px rgba(15,23,42,.05)}
+.before{background:#fff7ed}.after{background:#ecfdf5}.before h3,.after h3{font-size:28px;margin:0 0 12px}
+.audience{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.aud{background:white;border:1px solid var(--border);border-radius:20px;padding:24px;text-align:center;font-weight:900;box-shadow:0 12px 32px rgba(15,23,42,.045)}
+.form-section{background:radial-gradient(circle at bottom right,rgba(248,180,0,.25),transparent 28%),linear-gradient(135deg,#020617,#123366);color:white}
+.form-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:start}.form-section .lead{color:#dbeafe}
+.form-box{background:white;color:#0f172a;padding:32px;border-radius:28px;box-shadow:var(--shadow)}.form-box h3{font-size:26px;margin:0 0 8px}.form-box p{margin:0 0 16px;color:#64748b}
+label{display:block;font-weight:900;font-size:14px;margin-top:16px}input,select,textarea{width:100%;padding:15px;border:1px solid #cbd5e1;border-radius:13px;margin-top:8px;font-size:15px;font-family:inherit}
+button{width:100%;padding:17px;margin-top:24px;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#07172b;border:none;border-radius:15px;font-size:16px;font-weight:950;cursor:pointer}
+.small{font-size:13px;color:#64748b;margin-top:12px}
+.footer{background:white;padding:34px 24px;border-top:1px solid var(--border)}.footer-inner{max-width:1180px;margin:auto;display:flex;justify-content:space-between;gap:20px;align-items:center;color:#64748b;font-size:14px}.footer-brand{display:flex;align-items:center;gap:10px;color:#0f172a;font-weight:900}.footer-brand .logo{width:34px;height:34px;font-size:15px}
+@media(max-width:960px){.hero-grid,.split,.form-grid,.scenario{grid-template-columns:1fr}h1{font-size:43px}h2{font-size:34px}.grid3,.outcomes,.audience{grid-template-columns:1fr}.hero{padding-top:110px}.row{grid-template-columns:1fr}.arrow{transform:rotate(90deg);text-align:center}.footer-inner{flex-direction:column;align-items:flex-start}}
 </style>
 </head>
-
 <body>
+<nav class="nav"><div class="nav-inner"><div class="brand"><div class="logo">AI</div><div>AI Institute for Learning</div></div><a href="#register">Register Interest</a></div></nav>
 
 <header class="hero">
 <div class="container hero-grid">
-
 <div>
-<div class="badge">Executive Programme • Trusted AI Agents for Business</div>
-<h1>AI can transform your business — but only if your team can trust it.</h1>
-
-<p>
-Most companies are under pressure to adopt AI, but many are still unsure where to start, what to automate, and how to avoid unreliable outputs, poor controls, or operational risk.
-</p>
-
-<p>
-This hands-on programme helps founders, SME owners, business leaders, and operations teams learn how to deploy AI agents responsibly — with clear business value, human oversight, and practical safeguards.
-</p>
-
-<div class="cta-row">
-<a href="#signup" class="btn btn-primary">Register Interest</a>
-<a href="#value" class="btn btn-secondary">See What You’ll Gain</a>
+<div class="kicker"><span></span> Executive Programme • Trusted Multi-Agent AI Workflows</div>
+<h1>The next phase of AI adoption is <strong>multi-agent workflows.</strong></h1>
+<p>Businesses are moving beyond single AI assistants toward connected AI systems that coordinate customer enquiries, policy checks, approvals, scheduling, reporting, and operational decisions.</p>
+<p>The opportunity is powerful — but the risk is real. When AI agents communicate with each other, businesses need trust, verification, accountability, and human oversight built into the workflow.</p>
+<div class="cta-row"><a href="#register" class="btn btn-primary">Register Your Interest →</a><a href="#why" class="btn btn-secondary">Explore the Programme</a></div>
+<div class="micro">For founders, SMEs, business leaders, operations teams, and innovation leaders preparing for AI-enabled operations.</div>
 </div>
+<div class="visual">
+<h3>Example: connected AI workflow</h3>
+<div class="workflow">
+<div class="row"><div class="agent"><b>Customer Agent</b><span>Captures request and customer intent</span></div><div class="arrow">→</div><div class="agent"><b>Policy Agent</b><span>Checks approved rules and knowledge</span></div></div>
+<div class="trust-layer">Trust Layer: verification • confidence checks • escalation rules</div>
+<div class="row"><div class="agent"><b>Workflow Agent</b><span>Routes task and triggers next step</span></div><div class="arrow">→</div><div class="agent"><b>Human Owner</b><span>Approves sensitive or high-risk actions</span></div></div>
 </div>
-
-<div class="hero-card">
-<h3>Is this already happening in your business?</h3>
-
-<div class="problem">
-<strong>Your team is using AI, but without a clear framework.</strong>
-<span>Different people experiment in different ways, creating inconsistent quality and hidden risk.</span>
-</div>
-
-<div class="problem">
-<strong>You see AI potential, but struggle to identify the right workflows.</strong>
-<span>Not every process should be automated, and not every AI idea is worth pursuing.</span>
-</div>
-
-<div class="problem">
-<strong>You worry about wrong outputs, poor judgement, or lack of accountability.</strong>
-<span>AI can move fast, but business decisions still need trust, checks, and ownership.</span>
-</div>
-
-<div class="problem">
-<strong>You want productivity gains without creating operational chaos.</strong>
-<span>The goal is not just to use AI — it is to deploy it safely and effectively.</span>
-</div>
-
+<div class="risk-layer">Key question: What happens if one agent passes wrong information to another?</div>
 </div>
 </div>
 </header>
 
-<section id="value">
+<section id="why">
 <div class="container">
-<h2>Move from AI experimentation to business-ready deployment.</h2>
-<p class="lead">
-This programme is designed for business people who want practical answers: where AI agents can help, how to deploy them responsibly, and what safeguards are needed before using them in real workflows.
-</p>
-
+<h2>One AI tool is manageable. Connected AI agents need a trust framework.</h2>
+<p class="lead">As AI moves into real operations, agents will increasingly hand work to other agents. That creates new business questions around reliability, ownership, escalation, and control.</p>
 <div class="grid3">
-<div class="card">
-<div class="card-icon">⚙️</div>
-<h3>Improve operational efficiency</h3>
-<p>Identify repetitive, slow, or manual workflows where AI agents can reduce workload and improve turnaround time.</p>
-</div>
-
-<div class="card">
-<div class="card-icon">🛡️</div>
-<h3>Reduce AI adoption risk</h3>
-<p>Understand how to put human review, approval steps, escalation paths, and quality checks around AI outputs.</p>
-</div>
-
-<div class="card">
-<div class="card-icon">📈</div>
-<h3>Create a practical AI roadmap</h3>
-<p>Leave with a clearer view of which AI opportunities are worth pursuing and how to take the next step responsibly.</p>
-</div>
+<div class="card"><div class="icon">🔗</div><h3>Agents will coordinate business work</h3><p>Different agents may handle enquiries, knowledge checks, internal approvals, scheduling, reporting, and follow-ups.</p></div>
+<div class="card"><div class="icon">⚠️</div><h3>Mistakes can cascade</h3><p>If one agent passes incorrect context to another, the error can spread across the workflow and affect downstream decisions.</p></div>
+<div class="card"><div class="icon">🛡️</div><h3>Trust must be intentionally designed</h3><p>Businesses need verification, escalation paths, human checkpoints, auditability, and clear accountability.</p></div>
 </div>
 </div>
 </section>
 
-<section class="strip">
+<section class="band">
 <div class="container split">
-
 <div>
-<h2>Business leaders do not need more AI hype. They need a safe path to action.</h2>
-<p class="lead">
-The biggest challenge is no longer awareness. It is implementation: choosing the right use case, managing risk, getting team buy-in, and ensuring AI supports the business instead of disrupting it.
-</p>
-<div class="warning">
-The question is not “Should we use AI?” The question is “How do we use AI without losing control?”
+<h2>Learn how to design AI workflows where agents can collaborate safely.</h2>
+<p class="lead">This is not a coding workshop. It is a business-focused programme about the operational future of AI: multiple agents working together across real business workflows.</p>
+<div class="callout"><h3>The future is not just AI automation.</h3><p>It is trusted coordination between AI systems, people, and business processes.</p></div>
 </div>
+<div class="feature-list">
+<div class="feature"><div class="check">✓</div><div><strong>Understand multi-agent workflows in business terms</strong> See how connected agents can support customer service, operations, approvals, and knowledge work.</div></div>
+<div class="feature"><div class="check">✓</div><div><strong>Identify where trust can break down</strong> Map the points where context, output quality, or unclear ownership can create operational risk.</div></div>
+<div class="feature"><div class="check">✓</div><div><strong>Design oversight into agent handoffs</strong> Define where humans should review, approve, escalate, or override AI-driven actions.</div></div>
+<div class="feature"><div class="check">✓</div><div><strong>Create a trusted multi-agent capstone workflow</strong> Turn a real business workflow into a practical agent-to-agent deployment proposal.</div></div>
 </div>
-
-<div>
-<div class="feature">
-<div class="tick">✓</div>
-<div><strong>Know what to automate — and what not to automate</strong>
-Learn how to assess workflows based on business impact, complexity, risk, and readiness.</div>
-</div>
-
-<div class="feature">
-<div class="tick">✓</div>
-<div><strong>Design AI agents with oversight built in</strong>
-Understand when a human should review, approve, override, or escalate AI-generated actions.</div>
-</div>
-
-<div class="feature">
-<div class="tick">✓</div>
-<div><strong>Make AI useful for real teams</strong>
-Focus on workflows your employees, customers, or operations teams actually deal with daily.</div>
-</div>
-
-<div class="feature">
-<div class="tick">✓</div>
-<div><strong>Turn learning into a business proposal</strong>
-Develop a capstone project that maps a real workflow into a practical trusted-agent deployment plan.</div>
-</div>
-</div>
-
 </div>
 </section>
 
 <section>
 <div class="container">
-<h2>Example transformation: from manual work to trusted AI support</h2>
-<p class="lead">
-The programme helps participants think through real business scenarios, not abstract AI concepts.
-</p>
-
+<h2>Example: from fragmented handoffs to coordinated agent workflows.</h2>
+<p class="lead">Participants explore practical business scenarios where multiple AI agents coordinate work while keeping safeguards and human judgement in place.</p>
 <div class="scenario">
-<div class="before">
-<h3>Before</h3>
-<p><strong>Customer enquiries pile up.</strong></p>
-<p>Teams manually answer repetitive questions, miss follow-ups, and rely on individual judgement to decide what should be escalated.</p>
-</div>
-
-<div class="after">
-<h3>After</h3>
-<p><strong>A trusted AI agent supports the workflow.</strong></p>
-<p>The agent drafts responses, checks against approved information, flags exceptions, and routes sensitive cases to a human before action is taken.</p>
-</div>
+<div class="before"><h3>Before</h3><p><strong>Teams manually coordinate across systems.</strong></p><p>Customer requests, policy checks, scheduling, approvals, and follow-ups happen separately, creating delays, inconsistent decisions, and missed handoffs.</p></div>
+<div class="after"><h3>After</h3><p><strong>Agents coordinate the workflow with controls.</strong></p><p>One agent captures the request, another checks approved knowledge, another routes the next step, while sensitive decisions are escalated to a human owner.</p></div>
 </div>
 </div>
 </section>
 
-<section class="darkband">
+<section class="dark">
 <div class="container">
 <h2>What participants will walk away with</h2>
-<p class="lead">
-By the end of the programme, participants should be better equipped to discuss AI adoption internally, assess where AI agents can help, and plan deployment with greater confidence.
-</p>
-
-<div class="outcome-grid">
-<div class="outcome">
-<strong>Trusted AI opportunity map</strong>
-<span>A clearer view of where AI agents can create value in your business.</span>
-</div>
-<div class="outcome">
-<strong>Workflow improvement proposal</strong>
-<span>A structured proposal based on a real business workflow or operational challenge.</span>
-</div>
-<div class="outcome">
-<strong>Human oversight checklist</strong>
-<span>A practical view of where reviews, approvals, escalation, and safeguards are required.</span>
-</div>
-<div class="outcome">
-<strong>AI implementation roadmap</strong>
-<span>A next-step plan for moving from idea to practical exploration or pilot.</span>
-</div>
+<p class="lead">The programme helps participants understand how to design, assess, and govern trusted multi-agent workflows for their business context.</p>
+<div class="outcomes">
+<div class="outcome"><div class="num">01</div><strong>Multi-agent workflow map</strong><span>Where different agents could support business operations.</span></div>
+<div class="outcome"><div class="num">02</div><strong>Agent handoff model</strong><span>How agents should pass information and responsibility safely.</span></div>
+<div class="outcome"><div class="num">03</div><strong>Trust and oversight checkpoints</strong><span>Where verification, escalation, or human approval is required.</span></div>
+<div class="outcome"><div class="num">04</div><strong>Capstone implementation proposal</strong><span>A practical plan for further internal discussion or exploration.</span></div>
 </div>
 </div>
 </section>
@@ -515,71 +152,48 @@ By the end of the programme, participants should be better equipped to discuss A
 <section>
 <div class="container">
 <h2>Who should attend?</h2>
-<p class="lead">
-Built for decision-makers and operators who want to adopt AI responsibly while improving productivity, customer experience, and operational performance.
-</p>
-
+<p class="lead">Ideal for decision-makers and operators exploring AI-enabled business operations beyond isolated tools and chatbots.</p>
 <div class="audience">
-<div class="aud">Founders</div>
-<div class="aud">SME Owners</div>
-<div class="aud">Business Leaders</div>
-<div class="aud">Operations Teams</div>
-<div class="aud">Department Heads</div>
-<div class="aud">Innovation Teams</div>
-<div class="aud">Transformation Leads</div>
-<div class="aud">Consultants</div>
+<div class="aud">Founders</div><div class="aud">SME Owners</div><div class="aud">Business Leaders</div><div class="aud">Operations Teams</div>
+<div class="aud">Department Heads</div><div class="aud">Innovation Teams</div><div class="aud">Transformation Leads</div><div class="aud">Consultants</div>
 </div>
 </div>
 </section>
 
-<section class="form-section" id="signup">
+<section class="form-section" id="register">
 <div class="container form-grid">
-
 <div>
 <h2>Register your interest.</h2>
-<p class="lead">
-Interested in learning how to deploy AI agents safely and practically in your business?
-</p>
-<p style="font-size:18px;color:#dbeafe;">
-We will contact you to share more details about the programme and the next intake.
-</p>
+<p class="lead">Interested in understanding how trusted multi-agent AI workflows could apply to your business?</p>
+<p style="font-size:18px;color:#dbeafe;">We will contact you to share more details about the programme and the next intake.</p>
 </div>
-
 <div class="form-box">
+<h3>Get programme details</h3>
+<p>Tell us what you are exploring and we will follow up.</p>
 <form id="interest-form">
 <label for="name">Full Name</label>
 <input id="name" name="name" type="text" placeholder="Your name" required>
-
 <label for="email">Work Email</label>
 <input id="email" name="email" type="email" placeholder="you@company.com" required>
-
 <label for="company">Company / Organisation</label>
 <input id="company" name="company" type="text" placeholder="Company name" required>
-
 <label for="role">Your Role</label>
 <input id="role" name="role" type="text" placeholder="Founder, SME Owner, Operations Lead, Business Leader..." required>
-
 <button type="submit" id="submit-btn">Submit Interest</button>
 </form>
-
 <div id="success-msg" style="display:none;text-align:center;padding:24px 0;">
 <div style="font-size:52px;margin-bottom:14px;">✅</div>
 <strong style="font-size:20px;display:block;margin-bottom:10px;">Thank you — we've received your details!</strong>
 <p style="color:#64748b;margin:0;">Our team will be in touch with programme details and upcoming session dates.</p>
 </div>
 </div>
-
 </div>
 </section>
 
-<footer>
-Deploying Trusted AI Agents for Business • Executive Programme
-</footer>
+<footer class="footer"><div class="footer-inner"><div class="footer-brand"><div class="logo">AI</div> AI Institute for Learning</div><div>Trusted Multi-Agent AI Workflows • Executive Programme</div></div></footer>
 
 <script>
-// ── Paste your Google Apps Script web app URL below ──────────────
 const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxqty6NLwfAE-OadyH7ID-lDcbLIxjxyA4BSZ3uO37Nbeyv9lXRciieUSGSfB41Nke9/exec';
-// ─────────────────────────────────────────────────────────────────
 
 document.getElementById('interest-form').addEventListener('submit', async function (e) {
   e.preventDefault();
@@ -597,12 +211,8 @@ document.getElementById('interest-form').addEventListener('submit', async functi
   });
 
   try {
-    // no-cors: browser won't read the response, but the POST reaches the script
     await fetch(SCRIPT_URL, { method: 'POST', body, mode: 'no-cors' });
-  } catch (_) {
-    // fetch with no-cors can throw on network errors; still show success
-    // if the request was actually blocked, the sheet simply won't update
-  }
+  } catch (_) {}
 
   document.getElementById('interest-form').style.display = 'none';
   document.getElementById('success-msg').style.display = 'block';
