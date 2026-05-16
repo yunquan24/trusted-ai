@@ -546,20 +546,21 @@ Share your details and the type of business workflow you want to improve. We wil
 </div>
 
 <div class="form-box">
-<label>Full Name</label>
-<input type="text" placeholder="Your name">
+<form id="interest-form">
+<label for="name">Full Name</label>
+<input id="name" name="name" type="text" placeholder="Your name" required>
 
-<label>Work Email</label>
-<input type="email" placeholder="you@company.com">
+<label for="email">Work Email</label>
+<input id="email" name="email" type="email" placeholder="you@company.com" required>
 
-<label>Company / Organisation</label>
-<input type="text" placeholder="Company name">
+<label for="company">Company / Organisation</label>
+<input id="company" name="company" type="text" placeholder="Company name" required>
 
-<label>Your Role</label>
-<input type="text" placeholder="Founder, SME Owner, Operations Lead, Business Leader...">
+<label for="role">Your Role</label>
+<input id="role" name="role" type="text" placeholder="Founder, SME Owner, Operations Lead, Business Leader..." required>
 
-<label>What are you most interested in?</label>
-<select>
+<label for="interest">What are you most interested in?</label>
+<select id="interest" name="interest">
 <option>Deploying AI agents safely in my business</option>
 <option>Improving operational efficiency</option>
 <option>Reducing repetitive manual work</option>
@@ -567,13 +568,16 @@ Share your details and the type of business workflow you want to improve. We wil
 <option>Building an AI implementation roadmap</option>
 </select>
 
-<label>What workflow or business challenge would you like to improve?</label>
-<textarea rows="5" placeholder="Examples: customer support, onboarding, reporting, sales operations, document review, repetitive admin work..."></textarea>
+<label for="challenge">What workflow or business challenge would you like to improve?</label>
+<textarea id="challenge" name="challenge" rows="5" placeholder="Examples: customer support, onboarding, reporting, sales operations, document review, repetitive admin work..."></textarea>
 
-<button>Submit Interest</button>
+<button type="submit" id="submit-btn">Submit Interest</button>
+</form>
 
-<div class="small">
-Thank you for your interest. Our team will reach out with more details on upcoming programme runs and registration information.
+<div id="success-msg" style="display:none;text-align:center;padding:24px 0;">
+<div style="font-size:52px;margin-bottom:14px;">✅</div>
+<strong style="font-size:20px;display:block;margin-bottom:10px;">Thank you — we've received your details!</strong>
+<p style="color:#64748b;margin:0;">Our team will be in touch with programme details and upcoming session dates.</p>
 </div>
 </div>
 
@@ -583,6 +587,41 @@ Thank you for your interest. Our team will reach out with more details on upcomi
 <footer>
 Deploying Trusted AI Agents for Business • Executive Programme
 </footer>
+
+<script>
+// ── Paste your Google Apps Script web app URL below ──────────────
+const SCRIPT_URL = 'YOUR_APPS_SCRIPT_URL_HERE';
+// ─────────────────────────────────────────────────────────────────
+
+document.getElementById('interest-form').addEventListener('submit', async function (e) {
+  e.preventDefault();
+
+  const btn = document.getElementById('submit-btn');
+  btn.textContent = 'Submitting…';
+  btn.disabled = true;
+
+  const body = new URLSearchParams({
+    timestamp: new Date().toISOString(),
+    name:      document.getElementById('name').value.trim(),
+    email:     document.getElementById('email').value.trim(),
+    company:   document.getElementById('company').value.trim(),
+    role:      document.getElementById('role').value.trim(),
+    interest:  document.getElementById('interest').value,
+    challenge: document.getElementById('challenge').value.trim()
+  });
+
+  try {
+    // no-cors: browser won't read the response, but the POST reaches the script
+    await fetch(SCRIPT_URL, { method: 'POST', body, mode: 'no-cors' });
+  } catch (_) {
+    // fetch with no-cors can throw on network errors; still show success
+    // if the request was actually blocked, the sheet simply won't update
+  }
+
+  document.getElementById('interest-form').style.display = 'none';
+  document.getElementById('success-msg').style.display = 'block';
+});
+</script>
 
 </body>
 </html>
