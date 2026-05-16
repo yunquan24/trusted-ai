@@ -559,18 +559,6 @@ Share your details and the type of business workflow you want to improve. We wil
 <label for="role">Your Role</label>
 <input id="role" name="role" type="text" placeholder="Founder, SME Owner, Operations Lead, Business Leader..." required>
 
-<label for="interest">What are you most interested in?</label>
-<select id="interest" name="interest">
-<option>Deploying AI agents safely in my business</option>
-<option>Improving operational efficiency</option>
-<option>Reducing repetitive manual work</option>
-<option>Understanding responsible AI adoption</option>
-<option>Building an AI implementation roadmap</option>
-</select>
-
-<label for="challenge">What workflow or business challenge would you like to improve?</label>
-<textarea id="challenge" name="challenge" rows="5" placeholder="Examples: customer support, onboarding, reporting, sales operations, document review, repetitive admin work..."></textarea>
-
 <button type="submit" id="submit-btn">Submit Interest</button>
 </form>
 
@@ -605,9 +593,7 @@ document.getElementById('interest-form').addEventListener('submit', async functi
     name:      document.getElementById('name').value.trim(),
     email:     document.getElementById('email').value.trim(),
     company:   document.getElementById('company').value.trim(),
-    role:      document.getElementById('role').value.trim(),
-    interest:  document.getElementById('interest').value,
-    challenge: document.getElementById('challenge').value.trim()
+    role:      document.getElementById('role').value.trim()
   });
 
   try {
