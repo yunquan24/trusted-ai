@@ -1,0 +1,588 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deploy AI Agents Your Business Can Trust</title>
+<style>
+:root{
+--bg:#f8fafc;
+--dark:#0f172a;
+--muted:#64748b;
+--primary:#2563eb;
+--primary-dark:#1e3a8a;
+--accent:#f97316;
+--white:#ffffff;
+--border:#e2e8f0;
+--soft:#eff6ff;
+--soft2:#fff7ed;
+--green:#16a34a;
+}
+*{box-sizing:border-box}
+body{
+margin:0;
+font-family:Inter,Arial,sans-serif;
+background:var(--bg);
+color:var(--dark);
+line-height:1.6;
+}
+.container{
+max-width:1160px;
+margin:auto;
+}
+.hero{
+background:
+radial-gradient(circle at top left, rgba(37,99,235,.38), transparent 34%),
+radial-gradient(circle at bottom right, rgba(249,115,22,.28), transparent 32%),
+linear-gradient(135deg,#020617 0%,#111827 48%,#1e3a8a 100%);
+color:white;
+padding:92px 24px 76px;
+}
+.hero-grid{
+display:grid;
+grid-template-columns:1.08fr .92fr;
+gap:48px;
+align-items:center;
+}
+.badge{
+display:inline-block;
+padding:8px 14px;
+border-radius:999px;
+background:rgba(255,255,255,.11);
+border:1px solid rgba(255,255,255,.22);
+font-size:14px;
+margin-bottom:20px;
+color:#dbeafe;
+}
+h1{
+font-size:60px;
+line-height:1.04;
+letter-spacing:-2px;
+margin:0 0 22px;
+}
+.hero p{
+font-size:20px;
+color:#dbeafe;
+max-width:760px;
+}
+.cta-row{
+display:flex;
+gap:16px;
+flex-wrap:wrap;
+margin-top:32px;
+}
+.btn{
+padding:16px 26px;
+border-radius:14px;
+font-weight:800;
+text-decoration:none;
+display:inline-block;
+}
+.btn-primary{
+background:white;
+color:var(--primary-dark);
+}
+.btn-secondary{
+border:1px solid rgba(255,255,255,.35);
+color:white;
+}
+.hero-card{
+background:rgba(255,255,255,.1);
+border:1px solid rgba(255,255,255,.18);
+backdrop-filter:blur(10px);
+border-radius:26px;
+padding:30px;
+box-shadow:0 25px 60px rgba(0,0,0,.25);
+}
+.hero-card h3{
+font-size:25px;
+margin:0 0 14px;
+}
+.problem{
+padding:16px 0;
+border-bottom:1px solid rgba(255,255,255,.15);
+}
+.problem:last-child{
+border-bottom:none;
+}
+.problem strong{
+display:block;
+font-size:16px;
+color:white;
+}
+.problem span{
+display:block;
+font-size:14px;
+color:#cbd5e1;
+margin-top:4px;
+}
+section{
+padding:78px 24px;
+}
+h2{
+font-size:42px;
+line-height:1.12;
+letter-spacing:-1px;
+margin:0 0 18px;
+}
+.lead{
+font-size:20px;
+color:var(--muted);
+max-width:860px;
+margin-bottom:36px;
+}
+.grid3{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:22px;
+}
+.card{
+background:white;
+border:1px solid var(--border);
+border-radius:22px;
+padding:28px;
+box-shadow:0 12px 32px rgba(15,23,42,.055);
+}
+.card-icon{
+width:50px;
+height:50px;
+border-radius:15px;
+background:var(--soft);
+display:grid;
+place-items:center;
+font-size:24px;
+margin-bottom:16px;
+}
+.card h3{
+font-size:22px;
+line-height:1.2;
+margin:0 0 12px;
+}
+.card p{
+color:var(--muted);
+margin:0;
+}
+.strip{
+background:white;
+border-top:1px solid var(--border);
+border-bottom:1px solid var(--border);
+}
+.split{
+display:grid;
+grid-template-columns:.9fr 1.1fr;
+gap:44px;
+align-items:center;
+}
+.warning{
+background:var(--soft2);
+border:1px solid #fed7aa;
+border-radius:24px;
+padding:30px;
+color:#7c2d12;
+font-size:22px;
+font-weight:800;
+}
+.feature{
+background:white;
+border:1px solid var(--border);
+border-radius:17px;
+padding:19px 21px;
+margin-bottom:16px;
+display:flex;
+gap:14px;
+}
+.tick{
+color:var(--green);
+font-size:22px;
+font-weight:900;
+line-height:1;
+}
+.feature strong{
+display:block;
+margin-bottom:5px;
+}
+.feature div:last-child{
+color:#475569;
+}
+.darkband{
+background:#0f172a;
+color:white;
+}
+.darkband .lead{
+color:#cbd5e1;
+}
+.outcome-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:18px;
+margin-top:28px;
+}
+.outcome{
+background:#1e293b;
+border:1px solid #334155;
+border-radius:18px;
+padding:22px;
+}
+.outcome strong{
+display:block;
+font-size:18px;
+margin-bottom:6px;
+}
+.outcome span{
+color:#cbd5e1;
+font-size:15px;
+}
+.audience{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:16px;
+margin-top:30px;
+}
+.aud{
+background:white;
+border:1px solid var(--border);
+border-radius:18px;
+padding:22px;
+text-align:center;
+font-weight:800;
+}
+.scenario{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:22px;
+}
+.before,.after{
+border-radius:22px;
+padding:28px;
+border:1px solid var(--border);
+}
+.before{
+background:#fff7ed;
+}
+.after{
+background:#ecfdf5;
+}
+.before h3,.after h3{
+margin-top:0;
+font-size:24px;
+}
+.form-section{
+background:
+radial-gradient(circle at bottom right, rgba(37,99,235,.32), transparent 35%),
+linear-gradient(135deg,#0f172a,#1e3a8a);
+color:white;
+}
+.form-grid{
+display:grid;
+grid-template-columns:.9fr 1.1fr;
+gap:42px;
+align-items:start;
+}
+.form-section .lead{
+color:#dbeafe;
+}
+.form-box{
+background:white;
+color:var(--dark);
+padding:30px;
+border-radius:24px;
+box-shadow:0 25px 60px rgba(0,0,0,.22);
+}
+label{
+display:block;
+font-weight:800;
+font-size:14px;
+margin-top:16px;
+}
+input,select,textarea{
+width:100%;
+padding:14px;
+border:1px solid #cbd5e1;
+border-radius:12px;
+margin-top:8px;
+font-size:15px;
+}
+button{
+width:100%;
+padding:16px;
+margin-top:24px;
+background:var(--primary);
+color:white;
+border:none;
+border-radius:14px;
+font-size:16px;
+font-weight:900;
+cursor:pointer;
+}
+.small{
+font-size:13px;
+color:#64748b;
+margin-top:12px;
+}
+footer{
+background:white;
+text-align:center;
+padding:30px;
+font-size:14px;
+color:#64748b;
+}
+@media(max-width:900px){
+.hero-grid,.split,.form-grid,.scenario{
+grid-template-columns:1fr;
+}
+h1{font-size:44px}
+h2{font-size:34px}
+.grid3,.outcome-grid,.audience{
+grid-template-columns:1fr;
+}
+}
+</style>
+</head>
+
+<body>
+
+<header class="hero">
+<div class="container hero-grid">
+
+<div>
+<div class="badge">Executive Programme • Trusted AI Agents for Business</div>
+<h1>AI can transform your business — but only if your team can trust it.</h1>
+
+<p>
+Most companies are under pressure to adopt AI, but many are still unsure where to start, what to automate, and how to avoid unreliable outputs, poor controls, or operational risk.
+</p>
+
+<p>
+This hands-on programme helps founders, SME owners, business leaders, and operations teams learn how to deploy AI agents responsibly — with clear business value, human oversight, and practical safeguards.
+</p>
+
+<div class="cta-row">
+<a href="#signup" class="btn btn-primary">Register Interest</a>
+<a href="#value" class="btn btn-secondary">See What You’ll Gain</a>
+</div>
+</div>
+
+<div class="hero-card">
+<h3>Is this already happening in your business?</h3>
+
+<div class="problem">
+<strong>Your team is using AI, but without a clear framework.</strong>
+<span>Different people experiment in different ways, creating inconsistent quality and hidden risk.</span>
+</div>
+
+<div class="problem">
+<strong>You see AI potential, but struggle to identify the right workflows.</strong>
+<span>Not every process should be automated, and not every AI idea is worth pursuing.</span>
+</div>
+
+<div class="problem">
+<strong>You worry about wrong outputs, poor judgement, or lack of accountability.</strong>
+<span>AI can move fast, but business decisions still need trust, checks, and ownership.</span>
+</div>
+
+<div class="problem">
+<strong>You want productivity gains without creating operational chaos.</strong>
+<span>The goal is not just to use AI — it is to deploy it safely and effectively.</span>
+</div>
+
+</div>
+</div>
+</header>
+
+<section id="value">
+<div class="container">
+<h2>Move from AI experimentation to business-ready deployment.</h2>
+<p class="lead">
+This programme is designed for business people who want practical answers: where AI agents can help, how to deploy them responsibly, and what safeguards are needed before using them in real workflows.
+</p>
+
+<div class="grid3">
+<div class="card">
+<div class="card-icon">⚙️</div>
+<h3>Improve operational efficiency</h3>
+<p>Identify repetitive, slow, or manual workflows where AI agents can reduce workload and improve turnaround time.</p>
+</div>
+
+<div class="card">
+<div class="card-icon">🛡️</div>
+<h3>Reduce AI adoption risk</h3>
+<p>Understand how to put human review, approval steps, escalation paths, and quality checks around AI outputs.</p>
+</div>
+
+<div class="card">
+<div class="card-icon">📈</div>
+<h3>Create a practical AI roadmap</h3>
+<p>Leave with a clearer view of which AI opportunities are worth pursuing and how to take the next step responsibly.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="strip">
+<div class="container split">
+
+<div>
+<h2>Business leaders do not need more AI hype. They need a safe path to action.</h2>
+<p class="lead">
+The biggest challenge is no longer awareness. It is implementation: choosing the right use case, managing risk, getting team buy-in, and ensuring AI supports the business instead of disrupting it.
+</p>
+<div class="warning">
+The question is not “Should we use AI?” The question is “How do we use AI without losing control?”
+</div>
+</div>
+
+<div>
+<div class="feature">
+<div class="tick">✓</div>
+<div><strong>Know what to automate — and what not to automate</strong>
+Learn how to assess workflows based on business impact, complexity, risk, and readiness.</div>
+</div>
+
+<div class="feature">
+<div class="tick">✓</div>
+<div><strong>Design AI agents with oversight built in</strong>
+Understand when a human should review, approve, override, or escalate AI-generated actions.</div>
+</div>
+
+<div class="feature">
+<div class="tick">✓</div>
+<div><strong>Make AI useful for real teams</strong>
+Focus on workflows your employees, customers, or operations teams actually deal with daily.</div>
+</div>
+
+<div class="feature">
+<div class="tick">✓</div>
+<div><strong>Turn learning into a business proposal</strong>
+Develop a capstone project that maps a real workflow into a practical trusted-agent deployment plan.</div>
+</div>
+</div>
+
+</div>
+</section>
+
+<section>
+<div class="container">
+<h2>Example transformation: from manual work to trusted AI support</h2>
+<p class="lead">
+The programme helps participants think through real business scenarios, not abstract AI concepts.
+</p>
+
+<div class="scenario">
+<div class="before">
+<h3>Before</h3>
+<p><strong>Customer enquiries pile up.</strong></p>
+<p>Teams manually answer repetitive questions, miss follow-ups, and rely on individual judgement to decide what should be escalated.</p>
+</div>
+
+<div class="after">
+<h3>After</h3>
+<p><strong>A trusted AI agent supports the workflow.</strong></p>
+<p>The agent drafts responses, checks against approved information, flags exceptions, and routes sensitive cases to a human before action is taken.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="darkband">
+<div class="container">
+<h2>What participants will walk away with</h2>
+<p class="lead">
+By the end of the programme, participants should be better equipped to discuss AI adoption internally, assess where AI agents can help, and plan deployment with greater confidence.
+</p>
+
+<div class="outcome-grid">
+<div class="outcome">
+<strong>Trusted AI opportunity map</strong>
+<span>A clearer view of where AI agents can create value in your business.</span>
+</div>
+<div class="outcome">
+<strong>Workflow improvement proposal</strong>
+<span>A structured proposal based on a real business workflow or operational challenge.</span>
+</div>
+<div class="outcome">
+<strong>Human oversight checklist</strong>
+<span>A practical view of where reviews, approvals, escalation, and safeguards are required.</span>
+</div>
+<div class="outcome">
+<strong>AI implementation roadmap</strong>
+<span>A next-step plan for moving from idea to practical exploration or pilot.</span>
+</div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="container">
+<h2>Who should attend?</h2>
+<p class="lead">
+Built for decision-makers and operators who want to adopt AI responsibly while improving productivity, customer experience, and operational performance.
+</p>
+
+<div class="audience">
+<div class="aud">Founders</div>
+<div class="aud">SME Owners</div>
+<div class="aud">Business Leaders</div>
+<div class="aud">Operations Teams</div>
+<div class="aud">Department Heads</div>
+<div class="aud">Innovation Teams</div>
+<div class="aud">Transformation Leads</div>
+<div class="aud">Consultants</div>
+</div>
+</div>
+</section>
+
+<section class="form-section" id="signup">
+<div class="container form-grid">
+
+<div>
+<h2>Register your interest.</h2>
+<p class="lead">
+Interested in learning how to deploy AI agents safely and practically in your business?
+</p>
+<p style="font-size:18px;color:#dbeafe;">
+Share your details and the type of business workflow you want to improve. We will contact you with programme details and upcoming session information.
+</p>
+</div>
+
+<div class="form-box">
+<label>Full Name</label>
+<input type="text" placeholder="Your name">
+
+<label>Work Email</label>
+<input type="email" placeholder="you@company.com">
+
+<label>Company / Organisation</label>
+<input type="text" placeholder="Company name">
+
+<label>Your Role</label>
+<input type="text" placeholder="Founder, SME Owner, Operations Lead, Business Leader...">
+
+<label>What are you most interested in?</label>
+<select>
+<option>Deploying AI agents safely in my business</option>
+<option>Improving operational efficiency</option>
+<option>Reducing repetitive manual work</option>
+<option>Understanding responsible AI adoption</option>
+<option>Building an AI implementation roadmap</option>
+</select>
+
+<label>What workflow or business challenge would you like to improve?</label>
+<textarea rows="5" placeholder="Examples: customer support, onboarding, reporting, sales operations, document review, repetitive admin work..."></textarea>
+
+<button>Submit Interest</button>
+
+<div class="small">
+Thank you for your interest. Our team will reach out with more details on upcoming programme runs and registration information.
+</div>
+</div>
+
+</div>
+</section>
+
+<footer>
+Deploying Trusted AI Agents for Business • Executive Programme
+</footer>
+
+</body>
+</html>
